@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BookMVC.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="background-color:#c05802; padding:10px; width:800px;" class="rounded-3">
+    <h1 class="text-white">Estoque</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-dark">Adicionar Novo Livro</a>
+</p>
+<table class="table">
+    <thead>
+        <tr class="text-white">
+            <th>
+                Nome
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Preço
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="text-white">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td 
+                style="overflow: hidden;
+                        text-overflow: ellipsis;
+                        max-width: 30px;"
+            >
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                R$@Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-dark" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" class="btn btn-dark" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" class="btn btn-dark" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

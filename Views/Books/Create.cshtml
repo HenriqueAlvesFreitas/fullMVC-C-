@@ -1,0 +1,59 @@
+﻿@model BookMVC.Models.Book
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div style="
+    background-color:#c05802; 
+    display:flex; 
+    flex-direction:column;
+    align-self:center;
+    width:500px;
+    padding:10px;"
+ >
+ <div style="display:flex; flex-direction:column; align-items:center;" class="text-white">
+
+    <h1>Criar</h1>
+
+    <h4>Livro</h4>
+</div>
+<hr class="text-white"/>
+<div class="row">
+    <div 
+        class="col-md-12 text-white" 
+        style="display:flex; 
+               flex-direction:column;
+               align-items:center; 
+               gap:20px;"
+     >
+        <form asp-action="Create" style="display:flex; flex-direction:column; gap:20px;">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Nome</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Descrição</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Preço</label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:flex; justify-content:space-between">
+                    <a class="btn btn-dark" asp-action="Index">Voltar</a>
+                    <button type="submit" value="Create" class="btn btn-success">Criar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

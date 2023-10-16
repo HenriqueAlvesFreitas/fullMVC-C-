@@ -1,0 +1,61 @@
+﻿@model BookMVC.Models.Book
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div style="
+    background-color:#c05802;
+    display:flex;
+    flex-direction:column;
+    align-self:center;
+    width:500px;
+    padding:10px;"
+>
+
+<div style="display:flex; flex-direction:column; align-items:center;" class="text-white">
+
+    <h1>Editar</h1>
+
+    <h4>Livro</h4>
+
+</div>
+<hr />
+<div class="row">
+    <div 
+        class="col-md-12"
+        style="display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:20px;"
+    >
+        <form asp-action="Edit" style="display:flex; flex-direction:column; gap:20px;">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:flex; justify-content:space-between">
+                <a class="btn btn-dark" asp-action="Index">Voltar</a>
+                <button type="submit" value="Save" class="btn btn-success">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
