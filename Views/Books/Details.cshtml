@@ -4,33 +4,50 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div 
+    class="text-white"
+    style="
+    background-color:#c05802;
+    display:flex;
+    flex-direction:column;
+    align-self:center;
+    width:500px;
+    padding:10px;
+    border-radius:10px;"
+>
+
+<h1>Detalhes</h1>
 
 <div>
-    <h4>Book</h4>
+        <h4>@Html.DisplayFor(model => model.Name)</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
+            Nome:
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
+            Descrição:
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
+            Preço:
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
+            R$@Html.DisplayFor(model => model.Price)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+        <a class="btn btn-dark" asp-action="Index">Voltar</a>
+        |
+        <a asp-action="Edit" class="btn btn-dark" asp-route-id="@Model?.Id">Editar</a> 
+        
 </div>
+
+</div>
+

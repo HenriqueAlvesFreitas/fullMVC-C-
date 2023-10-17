@@ -8,13 +8,15 @@ namespace BookMVC.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O Nome é obrigatorio.")]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "A Descrição é obrigatoria.")]
+        [MinLength(10, ErrorMessage ="A descrição deve ter no minimo 10 caracteres")]
         public string Description { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O Preço é obrigatorio.")]
+        [RegularExpression(@"^\d+(\.\d+)?$", ErrorMessage = "O valor deve ser um número inteiro")]
         public decimal Price { get; set; }
 
         /*
